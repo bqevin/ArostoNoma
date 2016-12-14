@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+tools:context=".GridviewActivity"
+tools:showIn="@layout/app_bar_main"
+android:orientation="vertical">
+
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbarFragmentHome"
+    android:layout_width="match_parent"
+    app:popupTheme="@style/AppTheme.PopupOverlay"
+    android:layout_height="?attr/actionBarSize"
+    android:gravity="center"
+    android:titleTextColor="@color/icons"
+    android:background="@color/colorPrimary"
+    android:minHeight="?attr/actionBarSize" />
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context=".GridviewActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+</RelativeLayout>
+
+</LinearLayout>

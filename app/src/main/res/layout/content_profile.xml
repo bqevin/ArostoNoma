@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.swahilipothub.arostonoma.Profile"
+    tools:showIn="@layout/activity_profile">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:layout_height="@dimen/grid_text_height"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/primary_text"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Name: SwahiliPotHub"
+                android:background="@color/icons"
+                 />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:drawableLeft="@drawable/ic_email_black_24dp"
+                android:layout_height="@dimen/grid_text_height"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/primary_text"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="example@swahilipot.co.ke"
+                android:background="@color/icons"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:drawableLeft="@drawable/ic_call_black_24dp"
+                android:layout_height="@dimen/grid_text_height"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/primary_text"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Phone: 07230000000"
+                android:background="@color/icons"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/primary_text"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:text="Description"
+                android:background="@color/icons"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/secondary_text"
+                android:gravity="left"
+                android:textStyle="italic"
+                android:text="Found in Mombasa kenya"
+                android:background="@color/icons"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

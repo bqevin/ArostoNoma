@@ -1,0 +1,336 @@
+<resources>
+    <string name="app_name">Arosto Noma</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="menu_my_profile">My Profile</string>
+    <string name="menu_e_rehab">eRehab</string>
+    <string name="menu_report_dealers">Report Dealers</string>
+    <string name="menu_counseling">Counselling</string>
+
+    <string name="my_profile">My Profile</string>
+    <string name="e_rehab">eRehab</string>
+    <string name="report_dealers">Report Dealers</string>
+    <string name="counselling">Counselling</string>
+
+    <string-array name="rehab_topics" translatable="false">
+        <item>What is Drug Addiction Counseling?</item>
+        <item>Drugs, drug use and its consequences</item>
+        <item>The basic of addiction</item>
+        <item>Basic treatment principles</item>
+        <item>Important factors for successful treatment</item>
+        <item>Treatment for heroin addiction</item>
+        <item>The Stages of Change Model</item>
+    </string-array>
+
+    <string-array name="councelling_list" translatable="false">
+        <item>Alcohol Drinking</item>
+        <item>Hard Drugs</item>
+        <item>Smoking Fantancy</item>
+        <item>Chewing Staff</item>
+        <item>Psycho Therapy</item>
+    </string-array>
+
+    <string name="alcohol">Alcohol Drinking</string>
+    <string name="hard_drugs">Hard Drugs</string>
+    <string name="smoking">Smoking Fantancy</string>
+    <string name="chew">Chewing Staff</string>
+    <string name="psycho">Psycho Therapy</string>
+
+    <string-array name="councelling_list_detail" translatable="false">
+        <item>We help those affected</item>
+        <item>we help you quite Hard Drugs</item>
+        <item>We help you quite smoking</item>
+        <item>We help you quite Chewing Staff</item>
+        <item>Psycho Session and Trauma</item>
+    </string-array>
+
+    <string name="alcohol_detail">We help those affected</string>
+    <string name="hard_drugs_details">we help you quite Hard Drugs</string>
+    <string name="smoking_detail">We help you quite smoking</string>
+    <string name="chew_detail">We help you quite Chewing Staff</string>
+    <string name="psycho_detail">Psycho Session and Trauma</string>
+
+
+    <string name="addiction">What is Drug Addiction Counseling?</string>
+    <string name="consequences">Drugs, drug use and its consequences</string>
+    <string name="basic">The basic of addiction</string>
+    <string name="treatment">Basic treatment principles</string>
+    <string name="successful_treatment">Important factors for successful treatment</string>
+    <string name="heroin_addiction">Treatment for heroin addiction</string>
+    <string name="stages_change_model">The Stages of Change Model</string>
+
+    <string name="whats_drug_addiction">
+        \n
+Addiction is defined as a chronic, relapsing brain disease that is characterized by compulsive drug seeking and use, despite harmful consequences.
+\n \n NIDA continues to use the term “addiction” to describe compulsive drug seeking despite negative consequences. However, “addiction” is not considered a specific diagnosis.
+
+\n \n <b>INDENTIFYING ADDICTION PATTERN:</b>
+\n \n 1. The substance is often taken in larger amounts or over a longer period than was intended.
+\n \n 2. There is a persistent desire or unsuccessful effort to cut down or control use of the substance.
+\n \n3. A great deal of time is spent in activities necessary to obtain the substance, use the substance, or recover from its effects.
+\n \n4. Craving, or a strong desire or urge to use the substance.
+\n \n5. Recurrent use of the substance resulting in a failure to fulfill major role obligations at work, school, or home.
+\n \n6. Continued use of the substance despite having persistent or recurrent social or interpersonal problems caused or exacerbated by the effects of its use.
+\n \n7. Important social, occupational, or recreational activities are given up or reduced because of use of the substance.
+\n \n8. Recurrent use of the substance in situations in which it is physically hazardous.
+\n \n9. Use of the substance is continued despite knowledge of having a persistent or recurrent physical or psychological problem that is likely to have been caused or exacerbated by the substance.
+\n \n10. Tolerance, as defined by either of the following:
+ \n \na) A need for markedly increased amounts of the substance to achieve intoxication or desired effect.
+\n  \nb) A markedly diminished effect with continued use of the same amount of the substance.
+\n \n11. Withdrawal, as manifested by either of the following:
+ \n \na)The characteristic withdrawal syndrome for that substance (as specified in the DSM- 5 for each substance).
+ \n \nb)The substance (or a closely related substance) is taken to relieve or avoid withdrawal symptoms.\n\n
+</string>
+
+    <string name="drug_consequences">
+        \n \n <b> How drug use can impact your life</b>
+\n \n -Making an informed decision
+
+\n \n When making a decision about whether to take drugs it is important for you to know the facts about the drug you choose, and understand the risks related to taking that drug. Feeling confused about whether or not taking drugs is the right choice for you is not unusual.
+
+\n \n Drugs can appear initially to have positive effects – lifting your mood, relaxing you or even giving you more energy. However, they can also have negative impacts on your mental and physical health, your relationships, and your life in general.
+
+\n \n <b> When you are making your decision, consider the following points:</b>
+
+\n \n 1. Do you know what you are really taking? For example, most ecstasy is not actually MDMA.
+\n \n 2. What do you know about the person who\'s selling you the drug?
+\n \n 3. Are you taking anything else (alcohol, illicit drugs, over the counter or prescribed medication) that might interact with the drug?
+\n \n 4. How likely is it that you will have a positive experience?
+\n \n 5. How do you know that the next experience is also going to be a positive one?
+\n \n 6. Do you know that you will be able to control your drug usage and that it will be safe?
+\n \n 7. Can you really afford it?
+\n \n 8. Do you know the safest method of use?
+\n \n 9. Are you in the right environment – is there someone to help if something goes wrong?
+\n \n 10. Do you know what the risks are, and what to do if something goes wrong?
+\n \n 11. It is your choice to decide whether or not the risk of taking the drug is worth it for you.
+
+
+\n \n Consider the long-term effects
+\n \n <b>IMPACT:</b>
+
+\n \n If you are taking drugs, it is possible you believe that you can manage the effects of the drugs and that you can deal with the impact it has on your life. Taking drugs might make you feel good, and there may not even appear to be any immediate consequences to taking the drug.
+
+\n\n Sometimes some of these impacts might appear over time and as circumstances in your life or your use of drugs changes. It may be useful to stop and re-examine the impact of your drug use on your life now and see whether the negatives are outweighing the positives.
+
+\n \n You may find it useful to go through the list of possible life impacts below as a prompt. It may also be helpful to talk with someone you trust, for example, a friend, counsellor or family member.
+
+\n \n In general – your drug use might have impact on your life in ways you might not expect.
+      \n \n What were things like before you started using?
+     \n  \n How does using affect your life now? How would you like things to be different in the future?
+
+\n \n Your relationships – are you finding that there has been any negative change in your relationships?
+     \n  \n When drug use is an ongoing problem, conflict between friends and partners, and family breakdown can be more common.
+
+\n \n  Safety – do you ever find yourself in situations where you do not feel entirely in control of your actions? Being under the influence of drugs could put you at risk of being in danger in certain circumstances. Buying drugs or trying to get the money to buy them can also put you at risk of harm.
+
+\n \n School / university – do you feel you are managing your study commitments?
+     \n \n  You might not immediately notice the impact that your lifestyle is having on your study. Keeping up with your assignments and concentrating in class are two examples of how your study can be affected by drug use.
+
+\n \n Employment – have you or a friend lost a job recently as a result of not being able to do your job because you were drug-affected? The after effects of using drugs (coming down or feeling scattered) can reduce your ability to work in a job, they often place you in danger of hurting yourself or others at work, and can reduce your job prospects too.
+
+\n \n Financial pressures – have you found yourself struggling to pay bills or buy necessities because you have spent your pay or allowance on drugs? Have you ever thought about just how much you would save if you didn\'t use drugs?
+
+\n \n Using drugs regularly can become really expensive. In the extreme, when people are highly dependent on drugs, funding their habit can be their top priority and can lead to crime, or risking everything on gambling, only to end up losing.
+
+\n \n Dependence – are you finding it difficult to function without taking drugs? When you take drugs there is a risk that you will become dependent on them. This means that you might feel like you can not operate without it or that you are spending a lot of time and energy finding and using the drug. Another sign of dependence can be when you start taking more of the drug as a way to cope, or avoid, the symptoms related to the comedown.
+
+\n\n  Violence – have you done something you would not normally do when not taking drugs? Some drugs, like amphetamines, can increase the likelihood of acting in a violent way, or being the victim of violence.
+
+\n \n Homelessness – have your parents threatened to kick you out of home, or are you finding it hard to pay your rent? If you are spending your money on drugs you might find that there is not much money left for living (paying rent, buying food, or having the money to see a doctor or buy medicine when you get sick).
+
+\n \n Stress – feeling stressed instead of relaxed after taking drugs? You might think that using certain drugs will help you relax and forget about the things that are causing you stress. However, changing the way the body and mind work with drugs is a stress in itself, and you could experience tension, anxiety, paranoia and other symptoms which only increase the feelings of stress.
+
+\n \n Psychosis – have you or anyone you know ever lost touch with what is real? A number of drugs can trigger psychosis, which is a mental disorder where you lose touch with reality.
+
+\n \n Depression – have you ever felt depressed after taking drugs, or felt that taking drugs worsens existing depression? Feeling low after using some drugs is common (including alcohol). This can be due to the effect of the drug itself or because of things that happened when you were using them.
+
+\n \n Injuries and accidents – ever had an accident after taking drugs? When you are under the influence of drugs you might find yourself doing things that you would not normally do, which can increase your chance of getting hurt or having an accident.
+
+\n \n Sexually Transmitted Infections (STI\’s) or unwanted pregnancy – ever forgotten to use a condom when you were under the influence of drugs?
+       \n \n Under the influence you are less likely to remember to use protection which can result in you or the person you have sex with contracting an STI or getting pregnant.
+
+\n \n Damage to internal organs – have you considered the impact on your body?
+        \n \nHeavy use of some drugs can damage the liver, brain, lungs, throat and stomach.
+
+\n \n Risk of infectious disease – have you considered the risk of disease through drug paraphernalia?
+        \n \n Sharing needles is a major risk for getting diseases like hepatitis B or C, or HIV, which are all spread through blood-to-blood transmission.
+</string>
+
+<string name="basic_of_addiction">
+\n\n Addiction is a condition in which the body must have a drug to avoid physical and psychological withdrawal symptoms.
+   \n \n Addiction\'s first stage is dependence, during which the search for a drug dominates an individual\'s life.
+</string>
+<string name="basic_treatment">
+\n\n<b>WILLPOWER ALONE IS USUALLY NOT ENOUGH</b>
+\n \n You may be able to stop using a drug without professional help, but the risk of relapse is extremely high unless you’ve addressed the various complex issues underlying your addiction.
+  \n \n  These may involve trauma, stress, mental illness or a combination of these and other factors.
+\n \n If you’re living with an addiction, treatment can help you work through these issues, restore your relationships, reduce self-destructive ways of thinking and behaving, improve your physical and mental health and vastly improve your quality of life.
+</string>
+
+<string name="treatment_principles_of_heroine">
+\n \n <b>Principles of Effective Treatment</b>
+
+\n \n Based on scientific research since the mid-1970s, the following key principles should form the basis of any effective treatment program:
+
+\n \n 1. Addiction is a complex but treatable disease that affects brain function and behavior.
+\n \n 2. No single treatment is right for everyone.
+\n \n 3. People need to have quick access to treatment.
+\n \n 4. Effective treatment addresses all of the patient\’s needs, not just his or her drug use.
+\n \n 5. Staying in treatment long enough is critical.
+\n \n 6. Counseling and other behavioral therapies are the most commonly used forms of treatment.
+\n \n 7. Medications are often an important part of treatment, especially when combined with behavioral therapies.
+\n \n 8. Treatment plans must be reviewed often and modified to fit the patient\’s changing needs.
+\n \n 9. Treatment should address other possible mental disorders.
+\n \n 10. Medically assisted detoxification is only the first stage of treatment.
+\n \n 11. Treatment doesn\'t need to be voluntary to be effective.
+\n \n 12. Drug use during treatment must be monitored continuously.
+\n \n 13. Treatment programs should test patients for HIV/AIDS, hepatitis B and C, tuberculosis, and other infectious diseases as well as teach them about steps they can take to reduce their risk of these illnesses.
+</string>
+
+<string name="successful_treatment_steps">
+\n \n <b>How is drug addiction treated?</b>
+
+\n \n Successful treatment has several steps:
+
+\n \n 1. detoxification (the process by which the body rids itself of a drug)
+\n \n 2. behavioral counseling
+\n \n 3. medication (for opioid, tobacco, or alcohol addiction)
+\n \n 4. evaluation and treatment for co-occurring mental health issues such as depression and anxiety
+\n \n 5. long-term follow-up to prevent relapse
+\n \n 6. A range of care with a tailored treatment program and follow-up options can be crucial to success.
+\n \n Treatment should include both medical and mental health services as needed. Follow-up care may include community- or family-based recovery support systems.
+
+
+\n \n Behavioral therapies can help motivate people to participate in drug treatment, offer strategies for coping with drug cravings, teach ways to avoid drugs and prevent relapse, and help individuals deal with relapse if it occurs.
+   \n \n Behavioral therapies can also help people improve communication, relationship, and parenting skills, as well as family dynamics.
+</string>
+
+<string name="stages_of_change_model">
+\n \n In Changing for Good (1994), Prochaska and DiClemente describe the six stages of change:
+
+\n \n <b>Stage #1: Pre-Contemplation</b>
+
+\n \n People at this stage may be aware of the costs of their addiction. However, they do not see them as significant as compared to the benefits.
+    Of course, others may view this situation differently.
+    \n Characteristics of this stage are a lack of interest in change, and having no plan or intention to change. We might describe this person as unaware.
+
+\n \n Stage#2: Contemplation
+
+\n \n People in the contemplation stage have become aware of problems associated with their behavior. However, they are ambivalent about whether or not it is worthwhile to change. Characteristics of this stage are: exploring the potential to change; desiring change but lacking the confidence and commitment to change behavior; and having the intention to change at some unspecified time in the future. We might describe this person as aware and open to change.
+
+\n \n Between stage 2 and 3: A decision is made. People conclude that the negatives of their behavior outweigh the positives. They choose to change their behavior. They make a commitment to change. This decision represents an event, not a process.
+
+\n \n Stage #3: Preparation
+
+\n \n At this stage people accept responsibility to change their behavior. They evaluate and select techniques for behavioral change. Characteristics of this stage include: developing a plan to make the needed changes; building confidence and commitment to change; and having the intention to change within one month. We might describe this person as willing to change and anticipating of the benefits of change.
+
+\n \n Stage #4: Action
+
+\n \n At this stage people engage in self-directed behavioral change efforts while gaining new insights and developing new skills. Although these change efforts are self-directed, outside help may be sought. This might include rehab or therapy. Characteristics of this stage include: consciously choosing new behavior; learning to overcome the tendencies toward unwanted behavior; and engaging in change actions for less than six months. We might describe this person as enthusiastically embracing change and gaining momentum.
+
+\n \n Stage #5: Maintenance
+
+\n \n People in the maintenance stage have mastered the ability to sustain new behavior with minimal effort. They have established new behavioral patterns and self-control. Characteristics of this stage include: remaining alert to high-risk situations; maintaining a focus on relapse prevention; and behavioral change that has been sustained six months. We might describe this person as persevering and consolidating their change efforts. They are integrating change into the way they live their life.
+
+\n \n Stage #6: Termination
+
+\n \n At the termination stage people have adopted a new self-image consistent with desired behavior and lifestyle. They do not react to temptation in any situation. Characteristics of this stage include: confidence; enjoying self-control; and appreciation of a healthier and happier life. The relapse prevention plan has evolved into the pursuit of a meaningful and healthy lifestyle. As such, relapse into the former way of life becomes almost unthinkable.
+
+\n \n Note: Relapse to a prior stage can occur anywhere during this process. For example, someone in the action stage may move back to the contemplation or pre-contemplation stage.
+</string>
+    <string name="title_activity_profile">My Profile</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+
+
+</resources>
