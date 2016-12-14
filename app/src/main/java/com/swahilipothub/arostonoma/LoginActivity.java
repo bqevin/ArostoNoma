@@ -107,7 +107,7 @@ public class LoginActivity extends Activity {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
 
-        pDialog.setMessage("Logging in ...");
+        pDialog.setMessage("Getting in ...");
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,

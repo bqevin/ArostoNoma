@@ -6,8 +6,8 @@ package com.swahilipothub.arostonoma;
 
 public class AppConfig {
     // Server user login url
-    public static String URL_LOGIN = "http://arostonoma.co.ke/users/login.php";
+    public static String URL_LOGIN = "http://agrigender.net/arosto/users/login.php";
 
     // Server user register url
-    public static String URL_REGISTER = "http://arostonoma.co.ke/users/register.php";
+    public static String URL_REGISTER = "http://agrigender.net/arosto/users/register.php";
 }
