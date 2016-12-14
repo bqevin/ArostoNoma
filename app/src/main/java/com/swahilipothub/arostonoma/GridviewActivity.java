@@ -1,5 +1,6 @@
 package com.swahilipothub.arostonoma;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -8,6 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.swahilipothub.arostonoma.helper.SQLiteHandler;
+import com.swahilipothub.arostonoma.helper.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +22,8 @@ import java.util.List;
 public class GridviewActivity extends AppCompatActivity{
 
     private GridLayoutManager lLayout;
+    private SQLiteHandler db;
+    private SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,15 @@ public class GridviewActivity extends AppCompatActivity{
 
         RecyclerViewAdapter rcAdapter = new RecyclerViewAdapter(GridviewActivity.this, rowListItem);
         rView.setAdapter(rcAdapter);
+
+        // SqLite database handler
+        db = new SQLiteHandler(getApplicationContext());
+        // session manager
+        session = new SessionManager(getApplicationContext());
+
+        if (!session.isLoggedIn()) {
+            logoutUser();
+        }
     }
 
     @Override
@@ -57,8 +72,8 @@ public class GridviewActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            logoutUser();
         }
 
 
@@ -76,5 +91,16 @@ public class GridviewActivity extends AppCompatActivity{
 
 
         return allItems;
+    }
+
+    private void logoutUser() {
+        session.setLogin(false);
+
+        db.deleteUsers();
+
+        // Launching the login activity
+        Intent intent = new Intent(GridviewActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
