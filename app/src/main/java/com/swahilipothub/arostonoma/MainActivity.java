@@ -18,6 +18,9 @@ import android.view.MenuItem;
 import android.support.v4.app.FragmentManager;
 
 
+import com.swahilipothub.arostonoma.helper.SQLiteHandler;
+import com.swahilipothub.arostonoma.helper.SessionManager;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
@@ -25,13 +28,13 @@ public class MainActivity extends AppCompatActivity
 
     //FragmentManager
     FragmentManager mFragmentManager;
-
     //fragment
     FragmentHome fragmentHome;
    //Button button;
-
-
     DrawerLayout drawer;
+
+    private SQLiteHandler db;
+    private SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,14 @@ public class MainActivity extends AppCompatActivity
             }
         });*/
 
+        // SqLite database handler
+        db = new SQLiteHandler(getApplicationContext());
+        // session manager
+        session = new SessionManager(getApplicationContext());
+
+        if (!session.isLoggedIn()) {
+            logoutUser();
+        }
 
         if (savedInstanceState != null) {
             return;
@@ -108,8 +119,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            logoutUser();
         }
 
         return super.onOptionsItemSelected(item);
@@ -190,14 +201,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
-
-
-
-
-
-
-
     private void showProfileActivity() {
 
         startActivity(new Intent(this,Profile.class));
@@ -240,11 +243,6 @@ public class MainActivity extends AppCompatActivity
     }*/
 
 
-
-
-
-
-
     protected void shareThisApp() {
         // TODO Auto-generated method stub
         Intent sendInt = new Intent(Intent.ACTION_SEND);
@@ -254,8 +252,16 @@ public class MainActivity extends AppCompatActivity
         startActivity(Intent.createChooser(sendInt, "Share Via"));
     }
 
+    private void logoutUser() {
+        session.setLogin(false);
 
+        db.deleteUsers();
 
+        // Launching the login activity
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 

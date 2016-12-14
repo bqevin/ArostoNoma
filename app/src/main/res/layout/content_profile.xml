@@ -31,8 +31,7 @@
                 android:layout_height="@dimen/grid_text_height"
                 android:textSize="@dimen/text_size"
                 android:textColor="@color/primary_text"
-                android:gravity="center"
-                android:textStyle="bold"
+                android:text="Test USer"
                 android:background="@color/icons"
                  />
 
