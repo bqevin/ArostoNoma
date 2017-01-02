@@ -46,7 +46,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".CouncellingActivity"
+            android:name=".CHelpActivity"
             android:label="Seek Help"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">

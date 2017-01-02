@@ -50,7 +50,7 @@ public class CHelpListAdapter extends BaseAdapter {
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.counselling_item, null);
+            convertView = inflater.inflate(R.layout.chelp_item, null);
 
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
