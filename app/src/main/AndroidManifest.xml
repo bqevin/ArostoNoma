@@ -55,6 +55,14 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".CHelpDetails"
+            android:parentActivityName=".CHelpActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CHelpActivity" />
+        </activity>
+        <activity
             android:name=".RehabActivity"
             android:label="Rehab Assistance"
             android:parentActivityName=".MainActivity"

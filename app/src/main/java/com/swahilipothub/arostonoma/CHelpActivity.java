@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +28,7 @@ import java.util.List;
  * Created by Kevin Barassa on 03-Jan-17.
  */
 
-public class CHelpActivity extends Activity {
+public class CHelpActivity extends AppCompatActivity {
     // Log tag
     private static final String TAG = CHelpActivity.class.getSimpleName();
 
@@ -111,7 +112,7 @@ public class CHelpActivity extends Activity {
 
 
                 //Soft transfer
-                Intent intent = new Intent(this, CHelpDetails.class);
+                Intent intent = new Intent(getApplicationContext(), CHelpDetails.class);
                 intent.putExtra("EXTRA_TITLE", title);
                 intent.putExtra("EXTRA_DESC", desc);
                 intent.putExtra("EXTRA_ICON", icon);
@@ -132,5 +133,5 @@ public class CHelpActivity extends Activity {
             pDialog = null;
         }
     }
-    }
+
 }
