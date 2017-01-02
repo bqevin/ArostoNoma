@@ -15,9 +15,9 @@
         android:background="#fff"
         android:layout_marginRight="5dip">
 
-        <!-- Thumbnail Image -->
+        <!-- Help Icon Image -->
         <com.android.volley.toolbox.NetworkImageView
-            android:id="@+id/list_image"
+            android:id="@+id/help_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
