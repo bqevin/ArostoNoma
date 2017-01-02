@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_gallery) {
 
-            showCHActivity();
+            showCHelpActivity();
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private void showCHActivity() {
+    private void showCHelpActivity() {
 
         startActivity(new Intent(this, CHelpActivity.class));
 
