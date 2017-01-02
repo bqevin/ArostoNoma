@@ -65,6 +65,7 @@ public class CHelpActivity extends AppCompatActivity {
                             try {
 
                                 JSONObject obj = response.getJSONObject(i);
+                                //Init CHelp object Constructor
                                 CHelp chelp = new CHelp();
                                 chelp.setTitle(obj.getString("title"));
                                 chelp.setDetails(obj.getString("description"));
@@ -106,7 +107,6 @@ public class CHelpActivity extends AppCompatActivity {
                 String desc = (cHelpList.get(position)).getDetails();
                 //Icon
                 String icon = cHelpList.get(position).getIcon();
-
                 //Counsellors
                 String counsellor = cHelpList.get(position).getCounsellors();
 

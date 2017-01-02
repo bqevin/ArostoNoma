@@ -14,6 +14,10 @@ public class CHelp {
         this.counsellors = counsellors;
     }
 
+    public CHelp() {
+
+    }
+
     public String getTitle() {
         return title;
     }
