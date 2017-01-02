@@ -48,7 +48,7 @@ public class CHelpActivity extends Activity {
         listView.setAdapter(adapter);
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
-       // pDialog.setMessage("Fetching Help List...");
+        pDialog.setMessage("Preparing help categories...");
         //pDialog.show();
 
         // Creating volley request obj
