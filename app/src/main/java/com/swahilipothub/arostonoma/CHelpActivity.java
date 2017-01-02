@@ -1,6 +1,4 @@
 package com.swahilipothub.arostonoma;
-
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,8 +30,8 @@ public class CHelpActivity extends AppCompatActivity {
     // Log tag
     private static final String TAG = CHelpActivity.class.getSimpleName();
 
-    // Movies json url
-    private static final String url = "http://members.swahilipothub.co.ke/watu.php";
+    // Help json url
+    private static final String url = "http://arostonoma.co.ke/help.json";
     private ProgressDialog pDialog;
     private List<CHelp> cHelpList = new ArrayList<CHelp>();
     private ListView listView;
@@ -41,13 +39,19 @@ public class CHelpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //Inflate CHelp Layout
         setContentView(R.layout.activity_chelp);
+
         // declare layout binding
         listView = (ListView) findViewById(R.id.chelp_list);
+
         adapter = new CHelpListAdapter(this, cHelpList);
+
         listView.setAdapter(adapter);
+
         pDialog = new ProgressDialog(this);
+
         // Showing progress dialog before making http request
         pDialog.setMessage("Preparing help categories...");
         //pDialog.show();
@@ -71,6 +75,7 @@ public class CHelpActivity extends AppCompatActivity {
                                 chelp.setDetails(obj.getString("description"));
                                 chelp.setIcon(obj.getString("icon"));
                                 chelp.setCounsellors(obj.getString("counsellor"));
+
                                 cHelpList.add(chelp);
 
                             } catch (JSONException e) {
