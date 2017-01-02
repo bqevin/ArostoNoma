@@ -6,8 +6,8 @@
     android:orientation="horizontal"
     android:padding="5dip" >
 
-    <!--  ListRow Left sied Thumbnail image -->
-    <LinearLayout android:id="@+id/thumbnail"
+    <!--  ListRow Left side icon -->
+    <LinearLayout android:id="@+id/help_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="3dip"
@@ -15,44 +15,48 @@
         android:background="#fff"
         android:layout_marginRight="5dip">
 
-        <ImageView
+        <!-- Thumbnail Image -->
+        <com.android.volley.toolbox.NetworkImageView
             android:id="@+id/list_image"
-            android:layout_width="50dip"
-            android:layout_height="50dip" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="8dp" />
+
 
     </LinearLayout>
 
-    <!-- Title Of Song-->
+    <!-- Help category-->
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/help_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/thumbnail"
-        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_alignTop="@+id/help_icon"
+        android:layout_toRightOf="@+id/help_icon"
         android:text="Alcohol Drinking"
         android:textColor="@color/bg_main"
         android:typeface="sans"
         android:textSize="15dip" />
 
-    <!-- Artist Name -->
+    <!-- Help detail -->
     <TextView
-        android:id="@+id/artist"
+        android:id="@+id/help_desc"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
+        android:layout_below="@id/help_title"
         android:textColor="#343434"
         android:textSize="10dip"
         android:layout_marginTop="1dip"
-        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_toRightOf="@+id/help_icon"
         android:text="Believe you can and you’re halfway there." />
 
-    <!-- Rightend Duration -->
+    <!-- Join CTA -->
     <TextView
-        android:id="@+id/duration"
+        android:id="@+id/cta_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/title"
+        android:layout_alignTop="@id/help_title"
         android:gravity="right"
         android:text="JOIN"
         android:layout_marginRight="5dip"
