@@ -54,7 +54,7 @@ public class CHelpActivity extends AppCompatActivity {
 
         // Showing progress dialog before making http request
         pDialog.setMessage("Preparing help categories...");
-        //pDialog.show();
+        pDialog.show();
 
         // Creating volley request obj
         JsonArrayRequest movieReq = new JsonArrayRequest(url,
