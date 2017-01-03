@@ -91,9 +91,6 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".CustomListViewAndroidExample"
-            android:label="Councellors"></activity>
-        <activity
             android:name=".DetailView"
             android:label="eRehab"
             android:parentActivityName=".RehabActivity"
