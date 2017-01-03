@@ -56,6 +56,7 @@
         </activity>
         <activity
             android:name=".CHelpDetails"
+            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".CHelpActivity"
             android:screenOrientation="portrait">
             <meta-data

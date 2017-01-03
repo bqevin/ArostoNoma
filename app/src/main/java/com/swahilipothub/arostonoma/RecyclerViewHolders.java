@@ -24,8 +24,6 @@ public class RecyclerViewHolders extends RecyclerView.ViewHolder implements View
 
     @Override
     public void onClick(View view) {
-        //Toast.makeText(view.getContext(), "Clicked Country Position = " +getPosition()+" ID "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
-
         showPage(getAdapterPosition());
     }
 
@@ -46,7 +44,7 @@ public class RecyclerViewHolders extends RecyclerView.ViewHolder implements View
         }else if (adapterPosition == 3){
 
 
-            context.startActivity(new Intent(context, CouncellingActivity.class));
+            context.startActivity(new Intent(context, CHelpActivity.class));
         }
 
     }
