@@ -16,7 +16,7 @@ public class RehabActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
 
-    private RehabRecyclerViewAdapter mAdapter;
+    private RehabAdapter mAdapter;
 
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -54,7 +54,7 @@ public class RehabActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
 
         // specify an adapter
-        mAdapter = new RehabRecyclerViewAdapter(this,memberlist);
+        mAdapter = new RehabAdapter(this,memberlist);
 
         mRecyclerView.setAdapter(mAdapter);
     }

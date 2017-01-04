@@ -13,13 +13,13 @@ import java.util.List;
 /**
  * Created by ZoomIT User1 on 8/28/2016.
  */
-public class RehabRecyclerViewAdapter extends RecyclerView.Adapter<RehabCustomViewHolder>{
+public class RehabAdapter extends RecyclerView.Adapter<RehabCustomViewHolder>{
 
     List<RehabListItems> list_items;
     private Context mContext;
 
 
-    public RehabRecyclerViewAdapter(Context contexts, List<RehabListItems> list_items){
+    public RehabAdapter(Context contexts, List<RehabListItems> list_items){
 
         this.list_items = list_items;
         this.mContext = contexts;
