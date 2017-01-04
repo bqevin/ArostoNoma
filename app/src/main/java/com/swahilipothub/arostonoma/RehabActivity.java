@@ -1,11 +1,14 @@
 package com.swahilipothub.arostonoma;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -39,6 +42,7 @@ public class RehabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_rehab);
+
         recyclerView = (RecyclerView)findViewById(R.id.rehab_recycler);
 
         //Ensures every item on recycler view has fixed size
@@ -89,7 +93,8 @@ public class RehabActivity extends AppCompatActivity {
                                 item.setAuthor(o.getString("author"));
                                 item.setTitle(o.getString("title"));
                                 item.setImage(o.getString("image"));
-
+                                item.setBody(o.getString("body"));
+                                item.setTime(o.getString("time"));
                                 articles.add(item);
                             }
 

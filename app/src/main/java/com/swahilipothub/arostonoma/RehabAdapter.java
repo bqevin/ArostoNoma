@@ -11,7 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Response;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -34,7 +33,7 @@ public class RehabAdapter extends RecyclerView.Adapter<RehabAdapter.RehabViewHol
     public RehabViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.rehab_article, parent, false);
+                .inflate(R.layout.rehab_item, parent, false);
 
         return new RehabViewHolder(v);
     }
@@ -58,7 +57,31 @@ public class RehabAdapter extends RecyclerView.Adapter<RehabAdapter.RehabViewHol
         holder.articleLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              Toast.makeText(context, articleItem.getTitle(), Toast.LENGTH_LONG).show();
+                //Title
+                String title  = articleItem.getTitle();
+                //Author
+                String author  = articleItem.getAuthor();
+                //Body
+                String body  = articleItem.getBody();
+                //time
+                String time  = articleItem.getTime();
+                //image
+                String image  = articleItem.getImage();
+
+
+                //Soft transfer
+                Intent intent = new Intent(context, RehabArticleDetailed.class);
+                intent.putExtra("EXTRA_TITLE", title);
+                intent.putExtra("EXTRA_AUTHOR", author);
+                intent.putExtra("EXTRA_BODY", body);
+                intent.putExtra("EXTRA_TIME", time);
+                intent.putExtra("EXTRA_IMAGE", image);
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                context.startActivity(intent);
+
+             // Toast.makeText(context, articleItem.getTitle(), Toast.LENGTH_LONG).show();
             }
         });
 
