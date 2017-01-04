@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity
     //FragmentManager
     FragmentManager mFragmentManager;
     //fragment
-    FragmentHome fragmentHome;
+    SectionFragment sectionFragment;
    //Button button;
     DrawerLayout drawer;
 
@@ -68,11 +68,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fragmentHome = new FragmentHome();
+        sectionFragment = new SectionFragment();
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentManager.beginTransaction()
-                .add(R.id.home_frame_container, fragmentHome)
+                .add(R.id.home_frame_container, sectionFragment)
                 .commit();
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

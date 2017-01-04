@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.swahilipothub.arostonoma.helper.SQLiteHandler;
 import com.swahilipothub.arostonoma.helper.SessionManager;
@@ -19,7 +18,7 @@ import java.util.List;
 /**
  * Created by ZoomIT User1 on 8/25/2016.
  */
-public class GridviewActivity extends AppCompatActivity{
+public class SectionActivity extends AppCompatActivity{
 
     private GridLayoutManager lLayout;
     private SQLiteHandler db;
@@ -37,14 +36,14 @@ public class GridviewActivity extends AppCompatActivity{
         //topToolBar.setLogo(R.drawable.logo);
         topToolBar.setLogoDescription(getResources().getString(R.string.app_name));
 
-        List<ItemObject> rowListItem = getAllItemList();
-        lLayout = new GridLayoutManager(GridviewActivity.this, 2);
+        List<SectionFragObject> rowListItem = getAllItemList();
+        lLayout = new GridLayoutManager(SectionActivity.this, 2);
 
         RecyclerView rView = (RecyclerView)findViewById(R.id.recycler_view);
         rView.setHasFixedSize(true);
         rView.setLayoutManager(lLayout);
 
-        RecyclerViewAdapter rcAdapter = new RecyclerViewAdapter(GridviewActivity.this, rowListItem);
+        SectionAdapter rcAdapter = new SectionAdapter(SectionActivity.this, rowListItem);
         rView.setAdapter(rcAdapter);
 
         // SqLite database handler
@@ -80,13 +79,13 @@ public class GridviewActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-    private List<ItemObject> getAllItemList(){
+    private List<SectionFragObject> getAllItemList(){
 
-        List<ItemObject> allItems = new ArrayList<ItemObject>();
-        allItems.add(new ItemObject(getString(R.string.my_profile), R.drawable.profile));
-        allItems.add(new ItemObject(getString(R.string.e_rehab), R.drawable.rehab));
-        allItems.add(new ItemObject(getString(R.string.report_dealers), R.drawable.ok));
-        allItems.add(new ItemObject(getString(R.string.counselling), R.drawable.help));
+        List<SectionFragObject> allItems = new ArrayList<SectionFragObject>();
+        allItems.add(new SectionFragObject(getString(R.string.my_profile), R.drawable.profile));
+        allItems.add(new SectionFragObject(getString(R.string.e_rehab), R.drawable.rehab));
+        allItems.add(new SectionFragObject(getString(R.string.report_dealers), R.drawable.ok));
+        allItems.add(new SectionFragObject(getString(R.string.counselling), R.drawable.help));
 
 
 
@@ -99,7 +98,7 @@ public class GridviewActivity extends AppCompatActivity{
         db.deleteUsers();
 
         // Launching the login activity
-        Intent intent = new Intent(GridviewActivity.this, LoginActivity.class);
+        Intent intent = new Intent(SectionActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }

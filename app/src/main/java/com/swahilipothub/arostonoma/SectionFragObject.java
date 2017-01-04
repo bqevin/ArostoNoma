@@ -6,14 +6,14 @@ import android.media.Image;
 /**
  * Created by ZoomIT User1 on 8/25/2016.
  */
-public class ItemObject {
+public class SectionFragObject {
 
 
 
     private String name;
     private int photo;
 
-    public ItemObject(String name, int photo) {
+    public SectionFragObject(String name, int photo) {
         this.name = name;
         this.photo = photo;
     }

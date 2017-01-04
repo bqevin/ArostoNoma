@@ -8,28 +8,28 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolders> {
+public class SectionAdapter extends RecyclerView.Adapter<SectionViewHolders> {
 
-    private List<ItemObject> itemList;
+    private List<SectionFragObject> itemList;
     private Context context;
 
-    public RecyclerViewAdapter(Context context, List<ItemObject> itemList) {
+    public SectionAdapter(Context context, List<SectionFragObject> itemList) {
         this.itemList = itemList;
         this.context = context;
     }
 
     @Override
-    public RecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SectionViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_list, null);
-        RecyclerViewHolders rcv = new RecyclerViewHolders(layoutView,context);
+        SectionViewHolders rcv = new SectionViewHolders(layoutView,context);
         return rcv;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewHolders holder, int position) {
-        holder.countryName.setText(itemList.get(position).getName());
-        holder.countryPhoto.setImageResource(itemList.get(position).getPhoto());
+    public void onBindViewHolder(SectionViewHolders holder, int position) {
+        holder.sectionName.setText(itemList.get(position).getName());
+        holder.sectionIcon.setImageResource(itemList.get(position).getPhoto());
     }
 
     @Override

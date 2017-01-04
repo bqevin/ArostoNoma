@@ -8,18 +8,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class RecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class SectionViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-    public TextView countryName;
-    public ImageView countryPhoto;
+    public TextView sectionName;
+    public ImageView sectionIcon;
     Context context;
 
-    public RecyclerViewHolders(View itemView,Context mcontext) {
+    public SectionViewHolders(View itemView, Context mcontext) {
         super(itemView);
         itemView.setOnClickListener(this);
         this.context = mcontext;
-        countryName = (TextView)itemView.findViewById(R.id.name);
-        countryPhoto = (ImageView)itemView.findViewById(R.id.photo);
+        sectionName = (TextView)itemView.findViewById(R.id.name);
+        sectionIcon = (ImageView)itemView.findViewById(R.id.photo);
     }
 
     @Override

@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentHome extends Fragment {
+public class SectionFragment extends Fragment {
 
 
     private GridLayoutManager lLayout;
@@ -26,16 +26,16 @@ public class FragmentHome extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        toolbar.setTitle("Pick Where To Go");
+        toolbar.setTitle("Welcome to Arosto Noma");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
-
-        List<ItemObject> rowListItem = getAllItemList();
+        List<SectionFragObject> rowListItem = getAllItemList();
         lLayout = new GridLayoutManager(getActivity(), 2);
 
         rView.setHasFixedSize(true);
         rView.setLayoutManager(lLayout);
 
-        RecyclerViewAdapter rcAdapter = new RecyclerViewAdapter(getActivity(), rowListItem);
+        SectionAdapter rcAdapter = new SectionAdapter(getActivity(), rowListItem);
         rView.setAdapter(rcAdapter);
 
     }
@@ -52,13 +52,13 @@ public class FragmentHome extends Fragment {
         return v;
     }
 
-    private List<ItemObject> getAllItemList(){
+    private List<SectionFragObject> getAllItemList(){
 
-        List<ItemObject> allItems = new ArrayList<ItemObject>();
-        allItems.add(new ItemObject(getString(R.string.my_profile), R.drawable.profile));
-        allItems.add(new ItemObject(getString(R.string.e_rehab), R.drawable.rehab));
-        allItems.add(new ItemObject(getString(R.string.report_dealers), R.drawable.ok));
-        allItems.add(new ItemObject(getString(R.string.counselling), R.drawable.help));
+        List<SectionFragObject> allItems = new ArrayList<SectionFragObject>();
+        allItems.add(new SectionFragObject(getString(R.string.my_profile), R.drawable.profile));
+        allItems.add(new SectionFragObject(getString(R.string.e_rehab), R.drawable.rehab));
+        allItems.add(new SectionFragObject(getString(R.string.report_dealers), R.drawable.ok));
+        allItems.add(new SectionFragObject(getString(R.string.counselling), R.drawable.help));
 
         return allItems;
     }
