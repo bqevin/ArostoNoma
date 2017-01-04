@@ -72,28 +72,6 @@
     <string name="heroin_addiction">Treatment for heroin addiction</string>
     <string name="stages_change_model">The Stages of Change Model</string>
 
-    <string name="whats_drug_addiction">
-        \n
-Addiction is defined as a chronic, relapsing brain disease that is characterized by compulsive drug seeking and use, despite harmful consequences.
-\n \n NIDA continues to use the term “addiction” to describe compulsive drug seeking despite negative consequences. However, “addiction” is not considered a specific diagnosis.
-
-\n \n <b>INDENTIFYING ADDICTION PATTERN:</b>
-\n \n 1. The substance is often taken in larger amounts or over a longer period than was intended.
-\n \n 2. There is a persistent desire or unsuccessful effort to cut down or control use of the substance.
-\n \n3. A great deal of time is spent in activities necessary to obtain the substance, use the substance, or recover from its effects.
-\n \n4. Craving, or a strong desire or urge to use the substance.
-\n \n5. Recurrent use of the substance resulting in a failure to fulfill major role obligations at work, school, or home.
-\n \n6. Continued use of the substance despite having persistent or recurrent social or interpersonal problems caused or exacerbated by the effects of its use.
-\n \n7. Important social, occupational, or recreational activities are given up or reduced because of use of the substance.
-\n \n8. Recurrent use of the substance in situations in which it is physically hazardous.
-\n \n9. Use of the substance is continued despite knowledge of having a persistent or recurrent physical or psychological problem that is likely to have been caused or exacerbated by the substance.
-\n \n10. Tolerance, as defined by either of the following:
- \n \na) A need for markedly increased amounts of the substance to achieve intoxication or desired effect.
-\n  \nb) A markedly diminished effect with continued use of the same amount of the substance.
-\n \n11. Withdrawal, as manifested by either of the following:
- \n \na)The characteristic withdrawal syndrome for that substance (as specified in the DSM- 5 for each substance).
- \n \nb)The substance (or a closely related substance) is taken to relieve or avoid withdrawal symptoms.\n\n
-</string>
 
     <string name="drug_consequences">
         \n \n <b> How drug use can impact your life</b>

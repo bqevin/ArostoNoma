@@ -6,98 +6,59 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 
 /**
- * Created by ZoomIT User1 on 8/28/2016.
+ * Created by Kevin Barassa on 8/28/2016.
  */
 public class RehabAdapter extends RecyclerView.Adapter<RehabAdapter.RehabViewHolder>{
 
-    List<RehabListItems> list_items;
-    private Context mContext;
+    private List<RehabArticles> articles;
+    private Context context;
 
-
-    public RehabAdapter(Context contexts, List<RehabListItems> list_items){
-
-        this.list_items = list_items;
-        this.mContext = contexts;
+    public RehabAdapter(List<RehabArticles> articles, Context context) {
+        this.articles = articles;
+        this.context = context;
     }
-
-
-
 
     @Override
     public RehabViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.rehab_card_layout, parent, false);
+                .inflate(R.layout.rehab_article, parent, false);
 
-        RehabViewHolder rehabViewHolder = new RehabViewHolder(v);
-
-        return rehabViewHolder;
+        return new RehabViewHolder(v);
     }
 
-
-
     @Override
-    public void onBindViewHolder(RehabViewHolder customViewHolder, int position) {
+    public void onBindViewHolder(RehabViewHolder holder, int position) {
 
-        customViewHolder.lable.setText(list_items.get(position).getCategory());
+        //Initiate the articles
+        final RehabArticles articleItem = articles.get(position);
 
-        customViewHolder.setClickListener(new ListViewClickListener() {
+        //inflate the created viewholders with actual data from model
+        holder.title.setText(articleItem.getTitle());
+        holder.author.setText(articleItem.getAuthor());
+
+        //Load image with Piccasso
+        Picasso.with(context)
+                .load(articleItem.getImage())
+                .into(holder.image);
+
+        //Add click listener to articles
+        holder.articleLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void itemClicked(View view, int position) {
-
-                String listItem = list_items.get(position).getCategory();
-
-
-                if (listItem.startsWith(mContext.getString(R.string.addiction)))
-                {
-
-                    openP1(mContext.getString(R.string.addiction));
-
-                }
-                else if(listItem.startsWith(mContext.getString(R.string.consequences)))
-                {
-
-                    openP2(mContext.getString(R.string.consequences));
-                }
-                else if(listItem.startsWith(mContext.getString(R.string.basic)))
-                {
-                    openP3(mContext.getString(R.string.basic));
-
-                }
-                else if(listItem.startsWith(mContext.getString(R.string.treatment)))
-                {
-                    openP4(mContext.getString(R.string.treatment));
-
-                }
-                else if(listItem.startsWith(mContext.getString(R.string.successful_treatment)))
-                {
-                    openP5(mContext.getString(R.string.successful_treatment));
-
-                }
-                else if(listItem.startsWith(mContext.getString(R.string.heroin_addiction)))
-                {
-                    openP6(mContext.getString(R.string.heroin_addiction));
-
-                }
-
-                else if(listItem.startsWith(mContext.getString(R.string.stages_change_model)))
-                {
-
-                    openP7(mContext.getString(R.string.stages_change_model));
-                }
-
-
-
-
-
-
-
+            public void onClick(View view) {
+              Toast.makeText(context, articleItem.getTitle(), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -106,118 +67,27 @@ public class RehabAdapter extends RecyclerView.Adapter<RehabAdapter.RehabViewHol
     @Override
     public int getItemCount() {
 
-        return list_items.size();
+        return articles.size();
     }
 
     //Viewholder class
-    class RehabViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class RehabViewHolder extends RecyclerView.ViewHolder{
 
-        TextView lable;
-
-        private ListViewClickListener clickListener11;
+        TextView title,author;
+        ImageView image;
+        LinearLayout articleLayout;
 
         public RehabViewHolder(View itemView) {
             super(itemView);
 
-            itemView.setOnClickListener(this);
-
-            lable = (TextView) itemView.findViewById(R.id.rehab_title);
+            title = (TextView) itemView.findViewById(R.id.title);
+            articleLayout = (LinearLayout) itemView.findViewById(R.id.articleLayout);
+            author = (TextView) itemView.findViewById(R.id.author);
+            image = (ImageView) itemView.findViewById(R.id.image);
 
         }
 
 
-        public void setClickListener(ListViewClickListener itemClickListener) {
-
-            this.clickListener11 = itemClickListener;
-        }
-
-        @Override
-        public void onClick(View v) {
-
-            this.clickListener11.itemClicked(v, getAdapterPosition());
-        }
-    }
-
-    private void openP1(String name) {
-
-        Intent intent = new Intent(mContext,DetailView.class);
-
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_TITLE,name);
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_CONTENT,mContext.getString(R.string.whats_drug_addiction));
-
-        mContext.startActivity(intent);
-    }
-
-    private void openP2(String name) {
-
-        Intent intent = new Intent(mContext,DetailView.class);
-
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_TITLE,name);
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_CONTENT,mContext.getString(R.string.drug_consequences));
-
-
-
-        mContext.startActivity(intent);
-    }
-
-    private void openP3(String name) {
-
-        Intent intent = new Intent(mContext,DetailView.class);
-
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_TITLE,name);
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_CONTENT,mContext.getString(R.string.basic_of_addiction));
-
-
-
-        mContext.startActivity(intent);
-    }
-
-    private void openP4(String name) {
-
-        Intent intent = new Intent(mContext,DetailView.class);
-
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_TITLE,name);
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_CONTENT,mContext.getString(R.string.basic_treatment));
-
-
-
-        mContext.startActivity(intent);
-    }
-
-    private void openP5(String name) {
-
-        Intent intent = new Intent(mContext,DetailView.class);
-
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_TITLE,name);
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_CONTENT,mContext.getString(R.string.successful_treatment_steps));
-
-
-
-        mContext.startActivity(intent);
-    }
-
-    private void openP6(String name) {
-
-        Intent intent = new Intent(mContext,DetailView.class);
-
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_TITLE,name);
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_CONTENT,mContext.getString(R.string.treatment_principles_of_heroine));
-
-
-
-        mContext.startActivity(intent);
-    }
-
-    private void openP7(String name) {
-
-        Intent intent = new Intent(mContext,DetailView.class);
-
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_TITLE,name);
-        intent.putExtra(AppConstants.REHAB_DETAIL_VIEW_CONTENT,mContext.getString(R.string.stages_of_change_model));
-
-
-
-        mContext.startActivity(intent);
     }
 
 
