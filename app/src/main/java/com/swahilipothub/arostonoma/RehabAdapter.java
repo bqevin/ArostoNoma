@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * Created by ZoomIT User1 on 8/28/2016.
  */
-public class RehabAdapter extends RecyclerView.Adapter<RehabCustomViewHolder>{
+public class RehabAdapter extends RecyclerView.Adapter<RehabAdapter.RehabViewHolder>{
 
     List<RehabListItems> list_items;
     private Context mContext;
@@ -29,20 +30,20 @@ public class RehabAdapter extends RecyclerView.Adapter<RehabCustomViewHolder>{
 
 
     @Override
-    public RehabCustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RehabViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.rehab_card_layout, parent, false);
 
-        RehabCustomViewHolder rehabCustomViewHolder = new RehabCustomViewHolder(v);
+        RehabViewHolder rehabViewHolder = new RehabViewHolder(v);
 
-        return rehabCustomViewHolder;
+        return rehabViewHolder;
     }
 
 
 
     @Override
-    public void onBindViewHolder(RehabCustomViewHolder customViewHolder, int position) {
+    public void onBindViewHolder(RehabViewHolder customViewHolder, int position) {
 
         customViewHolder.lable.setText(list_items.get(position).getCategory());
 
@@ -106,6 +107,35 @@ public class RehabAdapter extends RecyclerView.Adapter<RehabCustomViewHolder>{
     public int getItemCount() {
 
         return list_items.size();
+    }
+
+    //Viewholder class
+    class RehabViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        TextView lable;
+
+        private ListViewClickListener clickListener11;
+
+        public RehabViewHolder(View itemView) {
+            super(itemView);
+
+            itemView.setOnClickListener(this);
+
+            lable = (TextView) itemView.findViewById(R.id.rehab_title);
+
+        }
+
+
+        public void setClickListener(ListViewClickListener itemClickListener) {
+
+            this.clickListener11 = itemClickListener;
+        }
+
+        @Override
+        public void onClick(View v) {
+
+            this.clickListener11.itemClicked(v, getAdapterPosition());
+        }
     }
 
     private void openP1(String name) {
