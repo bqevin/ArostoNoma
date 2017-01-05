@@ -20,7 +20,7 @@ import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView txtName, txtEmail;
+    private TextView txtEmail;
 
     private SQLiteHandler db;
     private SessionManager session;
@@ -34,7 +34,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.profile_toolbar);
-        txtName = (TextView) findViewById(R.id.name);
         txtEmail = (TextView) findViewById(R.id.email);
 
 
