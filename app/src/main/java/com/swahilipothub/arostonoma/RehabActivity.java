@@ -63,17 +63,16 @@ public class RehabActivity extends AppCompatActivity {
 
         //Create data for the recipe items
         articles = new ArrayList<>();
+        //Initiate network action with screen message
+        p = new ProgressDialog(this);
+        p.setMessage("Fetching Articles");
+        p.show();
         //Render articles
         loadArticles();
     }
 
     //Fetch articles
     private void loadArticles() {
-
-
-        p = new ProgressDialog(this);
-        p.setMessage("Fetching Articles");
-        p.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 URL_DATA,
