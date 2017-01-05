@@ -1,7 +1,10 @@
 package com.swahilipothub.arostonoma;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
@@ -108,16 +111,30 @@ public class RehabActivity extends AppCompatActivity {
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
-                        //Ensures consistency of data is observed
-                        adapter.notifyDataSetChanged();
-                        //Clears previous fetched data
-                        articles.clear();
-                        // Makes a new network call
-                        newArticleRequest();
-                        //Stop loading animation
-                        refresherL.setRefreshing(false);
+                        //Checks if there is internet before making a data call
+                        if (isNetworkConnected()){
+                            //Ensures consistency of data is observed
+                            adapter.notifyDataSetChanged();
+                            //Clears previous fetched data
+                            articles.clear();
+                            // Makes a new network call
+                            newArticleRequest();
+                            //Stop loading animation
+                            refresherL.setRefreshing(false);
+                        }else {
+                            //Activate internet error Snackbar
+                            activateSnackbar();
+                            //Stop refreshing animation
+                            refresherL.setRefreshing(false);
+                        }
                     }
                 });
+    }
+
+    //Checks internet connection
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null;
     }
 
 
@@ -174,30 +191,35 @@ public class RehabActivity extends AppCompatActivity {
                 // VolleyLog.d(TAG, "Error: " + error.getMessage());
                 //Dismiss dialog
                 p.dismiss();
-
-                //Enable SnackBar
-                Snackbar snackbar = Snackbar
-                        .make(coordinatorLayout, "No internet connection!", Snackbar.LENGTH_LONG)
-                        .setAction("RETRY", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                            }
-                        });
-
-                // Changing message text color
-                snackbar.setActionTextColor(Color.RED);
-
-                // Changing action button text color
-                View sbView = snackbar.getView();
-                TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
-                textView.setTextColor(Color.YELLOW);
-                snackbar.show();
+                //Activate internet error Snackbar
+                activateSnackbar();
 
             }
         });
 
         // Adding request to volley request queue
         AppController.getInstance().addToRequestQueue(jsonReq);
+    }
+
+    //Internet error status snackbar
+    private void activateSnackbar(){
+        //Enable SnackBar
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, "No internet connection!", Snackbar.LENGTH_LONG)
+                .setAction("RETRY", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    }
+                });
+
+        // Changing message text color
+        snackbar.setActionTextColor(Color.RED);
+
+        // Changing action button text color
+        View sbView = snackbar.getView();
+        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(Color.YELLOW);
+        snackbar.show();
     }
 
 
