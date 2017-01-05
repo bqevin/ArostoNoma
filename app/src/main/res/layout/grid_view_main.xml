@@ -16,7 +16,7 @@ android:orientation="vertical">
     android:layout_height="?attr/actionBarSize"
     android:gravity="center"
     android:titleTextColor="@color/icons"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     android:minHeight="?attr/actionBarSize" />
 
 <RelativeLayout
