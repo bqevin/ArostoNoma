@@ -2,8 +2,11 @@ package com.swahilipothub.arostonoma;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.swahilipothub.arostonoma.helper.SQLiteHandler;
@@ -13,8 +16,8 @@ import java.util.HashMap;
 
 
 public class ProfileActivity extends AppCompatActivity {
-    private TextView txtName;
-    private TextView txtEmail;
+
+    private TextView txtName, txtEmail1, txtEmail2;
 
     private SQLiteHandler db;
     private SessionManager session;
@@ -28,7 +31,8 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         txtName = (TextView) findViewById(R.id.name);
-        txtEmail = (TextView) findViewById(R.id.email);
+        txtEmail1 = (TextView) findViewById(R.id.email1);
+        txtEmail2 = (TextView) findViewById(R.id.email2);
 
         // SqLite database handler
         db = new SQLiteHandler(getApplicationContext());
@@ -47,10 +51,18 @@ public class ProfileActivity extends AppCompatActivity {
         String email = user.get("email");
 
         // Displaying the user details on the screen
-        txtName.setText(name);
-        txtEmail.setText(email);
+        //txtName.setText(name);
+        txtEmail1.setText(email);
+        txtEmail2.setText(email);
 
-
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Edit clicked", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
     }
     /**
