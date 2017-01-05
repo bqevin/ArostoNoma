@@ -27,8 +27,8 @@ public class SectionFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         toolbar.setTitle("Portable rehab, with you forever!");
-        toolbar.setTitleTextColor(getResources().getColor(R.color.secondary_text));
-        toolbar.setBackgroundColor(getResources().getColor(R.color.white));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.shade));
 
         List<SectionFragObject> rowListItem = getAllItemList();
         lLayout = new GridLayoutManager(getActivity(), 2);
