@@ -2,13 +2,17 @@ package com.swahilipothub.arostonoma;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -35,6 +39,8 @@ public class RehabActivity extends AppCompatActivity {
     private ProgressDialog p;
     private List<RehabArticles> articles;
     private static final String URL_DATA = "http://arostonoma.co.ke/articles.json";
+    //For snackbar
+    private CoordinatorLayout coordinatorLayout;
 
 
     @Override
@@ -45,6 +51,10 @@ public class RehabActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView)findViewById(R.id.rehab_recycler);
 
+        //Enable snackbar viewing
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id
+                .coordinatorLayout);
+
         //Ensures every item on recycler view has fixed size
         recyclerView.setHasFixedSize(true);
 
@@ -53,7 +63,6 @@ public class RehabActivity extends AppCompatActivity {
 
         //Create data for the recipe items
         articles = new ArrayList<>();
-
         //Render articles
         loadArticles();
     }
@@ -115,13 +124,33 @@ public class RehabActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //Internet Error
-                        Toast.makeText(getApplicationContext(), "Ensure internet connectivity to load new articles", Toast.LENGTH_SHORT).show();
-                        //Dismiss dialogue and print error
+                        //Dismiss dialog
                         p.dismiss();
+
+                        //Enable SnackBar
+                        Snackbar snackbar = Snackbar
+                                .make(coordinatorLayout, "No internet connection!", Snackbar.LENGTH_LONG)
+                                .setAction("RETRY", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                    }
+                                });
+
+                        // Changing message text color
+                        snackbar.setActionTextColor(Color.RED);
+
+                        // Changing action button text color
+                        View sbView = snackbar.getView();
+                        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+                        textView.setTextColor(Color.YELLOW);
+                        snackbar.show();
+
+
                     }
                 });
         RequestQueue requestQue = Volley.newRequestQueue(this);
         requestQue.add(stringRequest);
     }
+
+
 }
