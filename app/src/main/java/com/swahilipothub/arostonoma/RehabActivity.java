@@ -94,17 +94,24 @@ public class RehabActivity extends AppCompatActivity {
             //Activate dialog
             p.setMessage("Fetching Articles");
             p.show();
-            newArticleRequest();
+            parseJsonFeed(new JSONObject());
+            p.dismiss();
         }
 
         /*
          *
          * Refreshes Articles
          */
+        //Sets animation color
+        refresherL.setColorSchemeColors(Color.parseColor("#ed0202"), Color.parseColor("#c40053"),Color.parseColor("#ffffff"), Color.parseColor("#51af50"));
         refresherL.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
+                        //Ensures consistency of data is observed
+                        adapter.notifyDataSetChanged();
+                        //Clears previous fetched data
+                        articles.clear();
                         // Makes a new network call
                         newArticleRequest();
                         //Stop loading animation
