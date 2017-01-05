@@ -31,7 +31,7 @@ public class SectionViewHolders extends RecyclerView.ViewHolder implements View.
 
         if(adapterPosition == 0){
 
-            context.startActivity(new Intent(context, Profile.class));
+            context.startActivity(new Intent(context, ProfileActivity.class));
 
         }else if (adapterPosition == 1){
 

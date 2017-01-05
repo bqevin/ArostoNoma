@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity
 
     private void showProfileActivity() {
 
-        startActivity(new Intent(this,Profile.class));
+        startActivity(new Intent(this,ProfileActivity.class));
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
