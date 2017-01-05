@@ -23,7 +23,7 @@ public class RehabArticleDetailed extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+                (CollapsingToolbarLayout) findViewById(R.id.rehab_toolbar);
 
         //Init transfered data
         Bundle extras = getIntent().getExtras();

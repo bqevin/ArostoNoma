@@ -2,10 +2,13 @@ package com.swahilipothub.arostonoma;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,7 +20,7 @@ import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView txtName, txtEmail1, txtEmail2;
+    private TextView txtName, txtEmail;
 
     private SQLiteHandler db;
     private SessionManager session;
@@ -29,10 +32,13 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        CollapsingToolbarLayout collapsingToolbar =
+                (CollapsingToolbarLayout) findViewById(R.id.profile_toolbar);
         txtName = (TextView) findViewById(R.id.name);
-        txtEmail1 = (TextView) findViewById(R.id.email1);
-        txtEmail2 = (TextView) findViewById(R.id.email2);
+        txtEmail = (TextView) findViewById(R.id.email);
+
+
+
 
         // SqLite database handler
         db = new SQLiteHandler(getApplicationContext());
@@ -51,9 +57,9 @@ public class ProfileActivity extends AppCompatActivity {
         String email = user.get("email");
 
         // Displaying the user details on the screen
-        //txtName.setText(name);
-        txtEmail1.setText(email);
-        txtEmail2.setText(email);
+        collapsingToolbar.setTitle(name);
+        txtEmail.setText(email);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +71,29 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            logoutUser();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     /**
      * Logging out the user. Will set isLoggedIn flag to false in shared
      * preferences Clears the user data from sqlite users table
