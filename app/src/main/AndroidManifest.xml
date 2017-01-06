@@ -104,6 +104,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.swahilipothub.arostonoma.MainActivity" />
         </activity>
+        <activity
+            android:name=".ProfileEditActivity"
+            android:label="@string/title_activity_profile"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.swahilipothub.arostonoma.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

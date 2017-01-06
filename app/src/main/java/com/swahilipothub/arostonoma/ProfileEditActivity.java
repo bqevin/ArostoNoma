@@ -18,7 +18,7 @@ import com.swahilipothub.arostonoma.helper.SessionManager;
 import java.util.HashMap;
 
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileEditActivity extends AppCompatActivity {
 
     private TextView txtEmail;
 
@@ -27,14 +27,14 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setContentView(R.layout.profile_edit);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.profile_toolbar);
-        txtEmail = (TextView) findViewById(R.id.email);
+//        CollapsingToolbarLayout collapsingToolbar =
+//                (CollapsingToolbarLayout) findViewById(R.id.profile_toolbar);
+//        txtEmail = (TextView) findViewById(R.id.email);
 
 
 
@@ -56,22 +56,8 @@ public class ProfileActivity extends AppCompatActivity {
         String email = user.get("email");
 
         // Displaying the user details on the screen
-        collapsingToolbar.setTitle(name);
-        txtEmail.setText(email);
+//        txtEmail.setText(email);
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Snackbar.make(view, "Edit clicked", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-                // Launching the edit activity
-                Intent intent = new Intent(ProfileActivity.this, ProfileEditActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
     }
 
@@ -107,7 +93,7 @@ public class ProfileActivity extends AppCompatActivity {
         db.deleteUsers();
 
         // Launching the login activity
-        Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+        Intent intent = new Intent(ProfileEditActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
