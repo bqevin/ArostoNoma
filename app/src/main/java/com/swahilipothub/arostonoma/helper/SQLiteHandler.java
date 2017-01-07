@@ -130,4 +130,16 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "Deleted all user info from sqlite");
     }
 
+    /**
+     * Actually deletes all tables...not just users
+     */
+    public void dropDB(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Drop table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        // Create tables again
+        onCreate(db);
+        Log.d(TAG, "Dropped existing table, and re-created a blank one");
+    }
+
 }

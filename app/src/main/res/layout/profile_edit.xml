@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:hint="This will be helpful to match you with counsellor who isn't boring ;)"
                 android:minLines="4"
-                android:maxLength="15"
+                android:maxLength="1000"
                 ></EditText>
 
             <TextView

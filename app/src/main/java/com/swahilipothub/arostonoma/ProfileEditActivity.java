@@ -84,9 +84,9 @@ public class ProfileEditActivity extends AppCompatActivity {
                 // Fetching email from sqlite
                 HashMap<String, String> user = db.getUserDetails();
                 String email = user.get("email");
-
                 //Check to see user has filled all fields
                 if (!bio.isEmpty() && !phone.isEmpty() && !location.isEmpty()) {
+                    Log.d("Post data","Email: "+email + "  Bio: "+bio + "  Phone: "+phone + "  Location: "+location);
                     updateUser(email, bio, phone, location);
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -116,7 +116,7 @@ public class ProfileEditActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                //Log.d(TAG, "Register Response: " + response.toString());
+                Log.d("Server Comms: ", "Register Response: " + response.toString());
                 hideDialog();
 
                 try {
@@ -140,6 +140,9 @@ public class ProfileEditActivity extends AppCompatActivity {
                                 .getString("phone");
                         String location = user
                                 .getString("location");
+
+                        // Delete existing data first
+                        db.deleteUsers();
 
                         // Inserting row in users table
                         db.addUser(name, email, uid, bio, phone, location, updated_at, created_at);

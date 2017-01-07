@@ -118,7 +118,7 @@ public class ProfileActivity extends AppCompatActivity {
     private void logoutUser() {
         session.setLogin(false);
 
-        db.deleteUsers();
+        db.dropDB();
 
         // Launching the login activity
         Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);

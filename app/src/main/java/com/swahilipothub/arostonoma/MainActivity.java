@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity
     private void logoutUser() {
         session.setLogin(false);
 
-        db.deleteUsers();
+        db.dropDB();
 
         // Launching the login activity
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);

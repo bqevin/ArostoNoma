@@ -95,7 +95,7 @@ public class SectionActivity extends AppCompatActivity{
     private void logoutUser() {
         session.setLogin(false);
 
-        db.deleteUsers();
+        db.dropDB();
 
         // Launching the login activity
         Intent intent = new Intent(SectionActivity.this, LoginActivity.class);
