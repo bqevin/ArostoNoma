@@ -66,8 +66,29 @@ public class ProfileEditActivity extends AppCompatActivity {
 
         String name = user.get("name");
         String email = user.get("email");
+        String bio = user.get("bio");
+        String phone = user.get("phone");
+        String location = user.get("location");
         // Displaying the user details on the screen
 //        txtEmail.setText(email);
+
+
+        // Register Button Click event
+//        btnUpdate.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                String name = inputFullName.getText().toString().trim();
+//                String email = inputEmail.getText().toString().trim();
+//                String password = inputPassword.getText().toString().trim();
+//
+//                if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
+//                    registerUser(name, email, password);
+//                } else {
+//                    Toast.makeText(getApplicationContext(),
+//                            "Please enter your details!", Toast.LENGTH_LONG)
+//                            .show();
+//                }
+//            }
+//        });
 
 
     }
