@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Cache;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
@@ -19,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,49 +59,68 @@ public class CHelpActivity extends AppCompatActivity {
         pDialog.setMessage("Preparing help categories...");
         pDialog.show();
 
-        // Creating volley request obj
-        JsonArrayRequest movieReq = new JsonArrayRequest(url,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d(TAG, response.toString());
-                        hidePDialog();
+        //Render articles
+        // We first check for cached request
+        Cache cache = AppController.getInstance().getRequestQueue().getCache();
+        Cache.Entry entry = cache.get(url);
+        if (entry != null) {
+            // fetch the data from cache
+            try {
+                String data = new String(entry.data, "UTF-8");
+                try {
+                    parseJSONUrl(new JSONArray(data));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
 
-                        // Parsing json
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
+        } else {
+            // Make a request online
+            JsonArrayRequest movieReq = new JsonArrayRequest(url,
+                    new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            Log.d(TAG, response.toString());
+                            hidePDialog();
 
-                                JSONObject obj = response.getJSONObject(i);
-                                //Init CHelp object Constructor
-                                CHelp chelp = new CHelp();
-                                chelp.setTitle(obj.getString("title"));
-                                chelp.setDetails(obj.getString("description"));
-                                chelp.setIcon(obj.getString("icon"));
-                                chelp.setCounsellors(obj.getString("counsellor"));
+                            // Parsing json
+                            for (int i = 0; i < response.length(); i++) {
+                                try {
 
-                                cHelpList.add(chelp);
+                                    JSONObject obj = response.getJSONObject(i);
+                                    //Init CHelp object Constructor
+                                    CHelp chelp = new CHelp();
+                                    chelp.setTitle(obj.getString("title"));
+                                    chelp.setDetails(obj.getString("description"));
+                                    chelp.setIcon(obj.getString("icon"));
+                                    chelp.setCounsellors(obj.getString("counsellor"));
 
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                                    cHelpList.add(chelp);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
                             }
 
+                            // notifying list adapter about data changes
+                            // so that it renders the list view with updated data
+                            adapter.notifyDataSetChanged();
                         }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.d(TAG, "Error: " + error.getMessage());
+                    hidePDialog();
 
-                        // notifying list adapter about data changes
-                        // so that it renders the list view with updated data
-                        adapter.notifyDataSetChanged();
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                hidePDialog();
+                }
+            });
 
-            }
-        });
-
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(movieReq);
+            // Adding request to request queue
+            AppController.getInstance().addToRequestQueue(movieReq);
+        }
 
         //Opens Counselling Help details view
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -126,6 +148,32 @@ public class CHelpActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Call data locally from cache
+    private void parseJSONUrl(JSONArray response){
+        pDialog.dismiss();
+        try {
+
+            for (int i = 0; i < response.length(); i++) {
+
+                JSONObject obj = response.getJSONObject(i);
+                //Init CHelp object Constructor
+                CHelp chelp = new CHelp();
+                chelp.setTitle(obj.getString("title"));
+                chelp.setDetails(obj.getString("description"));
+                chelp.setIcon(obj.getString("icon"));
+                chelp.setCounsellors(obj.getString("counsellor"));
+
+                cHelpList.add(chelp);
+            }
+            // notify data changes to recycler
+            adapter.notifyDataSetChanged();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @Override
     public void onDestroy() {
         super.onDestroy();

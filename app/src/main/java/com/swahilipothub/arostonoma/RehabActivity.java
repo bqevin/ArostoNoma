@@ -15,6 +15,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Cache;
 import com.android.volley.Request;
@@ -95,10 +96,10 @@ public class RehabActivity extends AppCompatActivity {
         } else {
             //Make completely new request
             //Activate dialog
-            p.setMessage("Fetching Articles");
-            p.show();
-            parseJsonFeed(new JSONObject());
-            p.dismiss();
+//            p.setMessage("Fetching Articles");
+//            p.show();
+             Toast.makeText(getApplicationContext(), "Fetching Articles", Toast.LENGTH_LONG).show();
+            newArticleRequest();
         }
 
         /*
@@ -182,6 +183,7 @@ public class RehabActivity extends AppCompatActivity {
                 //VolleyLog.d(TAG, "Response: " + response.toString());
                 if (response != null) {
                     parseJsonFeed(response);
+                    p.dismiss();
                 }
             }
         }, new Response.ErrorListener() {
