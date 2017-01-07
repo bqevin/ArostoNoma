@@ -74,15 +74,8 @@ public class ProfileEditActivity extends AppCompatActivity {
 
         // Fetching user details from sqlite
         HashMap<String, String> user = db.getUserDetails();
-
-        String name = user.get("name");
-        final String email = user.get("email");
-        String bio = user.get("bio");
-        String phone = user.get("phone");
-        String location = user.get("location");
-        // Displaying the user details on the screen
-//        txtEmail.setText(email);
-
+        //Fetch email to post as parameter
+        String email = user.get("email");
 
         // Edit Button Click event
         btnEdit.setOnClickListener(new View.OnClickListener() {
