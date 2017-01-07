@@ -20,7 +20,10 @@ import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private TextView txtPhone;
+    private TextView txtLocation;
     private TextView txtEmail;
+    private TextView txtBio;
 
     private SQLiteHandler db;
     private SessionManager session;
@@ -35,6 +38,10 @@ public class ProfileActivity extends AppCompatActivity {
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.profile_toolbar);
         txtEmail = (TextView) findViewById(R.id.email);
+        txtLocation = (TextView) findViewById(R.id.location);
+        txtBio = (TextView) findViewById(R.id.bio);
+        txtPhone = (TextView) findViewById(R.id.phone);
+
 
 
 
@@ -54,18 +61,25 @@ public class ProfileActivity extends AppCompatActivity {
 
         String name = user.get("name");
         String email = user.get("email");
+        String bio = user.get("bio");
+        String location = user.get("location");
+        String phone = user.get("phone");
+
 
         // Displaying the user details on the screen
         collapsingToolbar.setTitle(name);
         txtEmail.setText(email);
+        txtBio.setText(bio);
+        txtPhone.setText(phone);
+        txtLocation.setText(location);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Edit clicked", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+                Snackbar.make(view, "Activating edit mode", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
                 // Launching the edit activity
                 Intent intent = new Intent(ProfileActivity.this, ProfileEditActivity.class);
                 startActivity(intent);

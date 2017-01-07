@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +38,10 @@ public class ProfileEditActivity extends AppCompatActivity {
     private SQLiteHandler db;
     private SessionManager session;
     private ProgressDialog pDialog;
+    private EditText inputBio;
+    private EditText inputLocation;
+    private EditText inputPhone;
+    private Button btnEdit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,11 @@ public class ProfileEditActivity extends AppCompatActivity {
 //        CollapsingToolbarLayout collapsingToolbar =
 //                (CollapsingToolbarLayout) findViewById(R.id.profile_toolbar);
 //        txtEmail = (TextView) findViewById(R.id.email);
+
+        inputBio = (EditText) findViewById(R.id.bio_profile);
+        inputPhone = (EditText) findViewById(R.id.phone_profile);
+        inputLocation = (EditText) findViewById(R.id.location_profile);
+        btnEdit = (Button) findViewById(R.id.edit_btn);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -65,7 +76,7 @@ public class ProfileEditActivity extends AppCompatActivity {
         HashMap<String, String> user = db.getUserDetails();
 
         String name = user.get("name");
-        String email = user.get("email");
+        final String email = user.get("email");
         String bio = user.get("bio");
         String phone = user.get("phone");
         String location = user.get("location");
@@ -73,22 +84,22 @@ public class ProfileEditActivity extends AppCompatActivity {
 //        txtEmail.setText(email);
 
 
-        // Register Button Click event
-//        btnUpdate.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                String name = inputFullName.getText().toString().trim();
-//                String email = inputEmail.getText().toString().trim();
-//                String password = inputPassword.getText().toString().trim();
-//
-//                if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
-//                    registerUser(name, email, password);
-//                } else {
-//                    Toast.makeText(getApplicationContext(),
-//                            "Please enter your details!", Toast.LENGTH_LONG)
-//                            .show();
-//                }
-//            }
-//        });
+        // Edit Button Click event
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String bio = inputBio.getText().toString().trim();
+                String phone = inputPhone.getText().toString().trim();
+                String location = inputLocation.getText().toString().trim();
+
+                if (!bio.isEmpty() && !phone.isEmpty() && !location.isEmpty()) {
+                    updateUser(email, bio, phone, location);
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            "Please fill your details before updating!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
 
 
     }

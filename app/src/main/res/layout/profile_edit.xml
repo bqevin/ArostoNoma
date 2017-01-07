@@ -110,7 +110,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="\nWhat is you phone number?"
+                android:text="\nWhere do you live?"
                 android:textColor="#333"
                 android:padding="3dip"
                 android:shadowColor="#fff"
@@ -140,7 +140,7 @@
                 />
 
             <Button
-                android:id="@+id/thebutton"
+                android:id="@+id/edit_btn"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Save Profile"
