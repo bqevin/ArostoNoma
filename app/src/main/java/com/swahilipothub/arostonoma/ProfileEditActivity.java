@@ -115,8 +115,7 @@ public class ProfileEditActivity extends AppCompatActivity {
                                 .getString("location");
 
                         // Inserting row in users table
-                        db.addUser(name, email, uid, created_at, updated_at, bio, phone, location);
-
+                        db.addUser(name, email, uid, created_at, bio, phone, location, updated_at);
                         Toast.makeText(getApplicationContext(), "You info has successfully been updated!", Toast.LENGTH_LONG).show();
 
                         // Launch login activity
