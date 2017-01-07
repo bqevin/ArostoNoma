@@ -32,6 +32,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_NAME = "name";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_UID = "uid";
+    private static final String KEY_PHONE = "phone";
+    private static final String KEY_LOCATION = "location";
+    private static final String KEY_BIO = "bio";
+    private static final String KEY_UPDATED_AT = "updated_at";
     private static final String KEY_CREATED_AT = "created_at";
 
     public SQLiteHandler(Context context) {
@@ -44,6 +48,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT,"
+                +KEY_BIO + "TEXT," + KEY_PHONE + "INTEGER,"
+                +KEY_LOCATION + "TEXT," + KEY_UPDATED_AT + "TEXT,"
                 + KEY_CREATED_AT + " TEXT" + ")";
         db.execSQL(CREATE_LOGIN_TABLE);
 
@@ -63,7 +69,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * Storing user details in database
      * */
-    public void addUser(String name, String email, String uid, String created_at) {
+    public void addUser(String name, String email, String uid, String created_at, String bio, String phone, String location, String updated_at) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -71,6 +77,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_EMAIL, email); // Email
         values.put(KEY_UID, uid); // Email
         values.put(KEY_CREATED_AT, created_at); // Created At
+        values.put(KEY_BIO, bio); // Bio
+        values.put(KEY_PHONE, phone); // Phone
+        values.put(KEY_LOCATION, location); // Location
+        values.put(KEY_UPDATED_AT, updated_at); // Updated At
 
         // Inserting Row
         long id = db.insert(TABLE_USER, null, values);
@@ -95,6 +105,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             user.put("email", cursor.getString(2));
             user.put("uid", cursor.getString(3));
             user.put("created_at", cursor.getString(4));
+            user.put("bio", cursor.getString(5));
+            user.put("phone", cursor.getString(6));
+            user.put("location", cursor.getString(7));
+            user.put("updated_at", cursor.getString(8));
         }
         cursor.close();
         db.close();
