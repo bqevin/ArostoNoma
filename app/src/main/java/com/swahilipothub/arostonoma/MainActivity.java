@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity
         int currentVersionCode = BuildConfig.VERSION_CODE;
 
         if (prefs.getInt("LASTVERSION", 0) < currentVersionCode) {
+            //Update version
+            prefs.edit().putInt("LASTVERSION", currentVersionCode).apply();
             // Force user to sign in
             logoutUser();
         }
