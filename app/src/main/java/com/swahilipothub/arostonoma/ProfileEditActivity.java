@@ -72,10 +72,7 @@ public class ProfileEditActivity extends AppCompatActivity {
             logoutUser();
         }
 
-        // Fetching user details from sqlite
-        HashMap<String, String> user = db.getUserDetails();
-        //Fetch email to post as parameter
-        String email = user.get("email");
+
 
         // Edit Button Click event
         btnEdit.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +81,11 @@ public class ProfileEditActivity extends AppCompatActivity {
                 String phone = inputPhone.getText().toString().trim();
                 String location = inputLocation.getText().toString().trim();
 
+                // Fetching email from sqlite
+                HashMap<String, String> user = db.getUserDetails();
+                String email = user.get("email");
+
+                //Check to see user has filled all fields
                 if (!bio.isEmpty() && !phone.isEmpty() && !location.isEmpty()) {
                     updateUser(email, bio, phone, location);
                 } else {
@@ -140,7 +142,7 @@ public class ProfileEditActivity extends AppCompatActivity {
                                 .getString("location");
 
                         // Inserting row in users table
-                        db.addUser(name, email, uid, created_at, bio, phone, location, updated_at);
+                        db.addUser(name, email, uid, bio, phone, location, updated_at, created_at);
                         Toast.makeText(getApplicationContext(), "You info has successfully been updated!", Toast.LENGTH_LONG).show();
 
                         // Launch login activity

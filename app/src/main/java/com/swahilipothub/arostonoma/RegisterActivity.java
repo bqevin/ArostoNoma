@@ -142,7 +142,7 @@ public class RegisterActivity extends Activity {
                                 .getString("updated_at");
 
                         // Inserting row in users table
-                        db.addUser(name, email, uid, created_at, bio, phone, location, updated_at);
+                        db.addUser(name, email, uid, bio, phone, location, updated_at, created_at);
 
                         Toast.makeText(getApplicationContext(), "You have successfully registered. Try login now!", Toast.LENGTH_LONG).show();
 
