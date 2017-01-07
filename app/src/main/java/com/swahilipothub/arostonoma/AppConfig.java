@@ -10,4 +10,7 @@ public class AppConfig {
 
     // Server user register url
     public static String URL_REGISTER = "http://agrigender.net/arosto/users/register.php";
+
+    // Server user edit url
+    public static String URL_EDIT = "http://agrigender.net/arosto/users/register.php";
 }
