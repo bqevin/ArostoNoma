@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_toEndOf="@id/ivContactItem46"
-                android:layout_toStartOf="@+id/chkState6"
+                android:layout_toStartOf="@+id/chkState46"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="About me"
@@ -54,7 +54,7 @@
                 android:textColor="#212121"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_toRightOf="@id/ivContactItem46"
-                android:layout_toLeftOf="@+id/chkState6" />
+                android:layout_toLeftOf="@+id/chkState46" />
 
             <TextView
                 android:layout_width="wrap_content"

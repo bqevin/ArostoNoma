@@ -2,11 +2,13 @@ package com.swahilipothub.arostonoma;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -64,6 +66,18 @@ public class MainActivity extends AppCompatActivity
             return;
         }
 
+        /**
+         * Force user to logout if updated
+         * from version 1.4 to 1.5
+         * avoid error on profile
+         **/
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int currentVersionCode = BuildConfig.VERSION_CODE;
+
+        if (prefs.getInt("LASTVERSION", 0) < currentVersionCode) {
+            // Force user to sign in
+            logoutUser();
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
