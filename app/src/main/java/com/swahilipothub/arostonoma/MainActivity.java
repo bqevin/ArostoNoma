@@ -71,15 +71,15 @@ public class MainActivity extends AppCompatActivity
          * from version 1.4 to 1.5
          * avoid error on profile
          **/
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        int currentVersionCode = BuildConfig.VERSION_CODE;
-
-        if (prefs.getInt("LASTVERSION", 0) < currentVersionCode) {
-            //Update version
-            prefs.edit().putInt("LASTVERSION", currentVersionCode).apply();
-            // Force user to sign in
-            logoutUser();
-        }
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+//        int currentVersionCode = BuildConfig.VERSION_CODE;
+//
+//        if (prefs.getInt("LASTVERSION", 0) < currentVersionCode) {
+//            //Update version
+//            prefs.edit().putInt("LASTVERSION", currentVersionCode).apply();
+//            // Force user to sign in
+//            logoutUser();
+//        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

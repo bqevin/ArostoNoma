@@ -65,6 +65,9 @@ public class ProfileActivity extends AppCompatActivity {
         String location = user.get("location");
         String phone = user.get("phone");
 
+        if (email.isEmpty()) {
+            logoutUser();
+        }
 
         // Displaying the user details on the screen
         collapsingToolbar.setTitle(name);
