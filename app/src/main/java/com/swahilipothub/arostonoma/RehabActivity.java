@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ZoomIT User1 on 8/28/2016.
+ * Created by Kevin Barasa on 8/28/2016.
  */
 public class RehabActivity extends AppCompatActivity {
 
