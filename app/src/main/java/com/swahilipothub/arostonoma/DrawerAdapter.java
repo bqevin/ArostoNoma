@@ -14,12 +14,12 @@ import java.util.ArrayList;
  * Created by Kevin Barassa on 04-Jan-17.
  */
 
-public class DrawerAdapater extends ArrayAdapter<DrawerItem> {
+public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
     Context mContext;
     int resourceId;
     ArrayList<DrawerItem> data = new ArrayList<DrawerItem>();
 
-    public DrawerAdapater(Context context, int layoutResourceId, ArrayList<DrawerItem> data) {
+    public DrawerAdapter(Context context, int layoutResourceId, ArrayList<DrawerItem> data) {
         super(context, layoutResourceId, data);
         this.mContext = context;
         this.resourceId = layoutResourceId;

@@ -15,12 +15,16 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class SectionFragment extends Fragment {
 
 
     private GridLayoutManager lLayout;
-    RecyclerView rView;
-    Toolbar toolbar;
+
+    @BindView(R.id.toolbarFragmentHome) Toolbar toolbar;
+    @BindView(R.id.recycler_view) RecyclerView rView;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -44,13 +48,9 @@ public class SectionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.grid_view_main, container, false);
-
-        rView = (RecyclerView) v.findViewById(R.id.recycler_view);
-        toolbar = (Toolbar)v.findViewById(R.id.toolbarFragmentHome);
-
-
-        return v;
+        View view = inflater.inflate(R.layout.grid_view_main, container, false);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
     private List<SectionFragObject> getAllItemList(){

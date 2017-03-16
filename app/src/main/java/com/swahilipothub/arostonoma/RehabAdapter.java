@@ -15,6 +15,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 /**
  * Created by Kevin Barassa on 8/28/2016.
@@ -32,10 +35,9 @@ public class RehabAdapter extends RecyclerView.Adapter<RehabAdapter.RehabViewHol
     @Override
     public RehabViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext())
+        View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.rehab_item, parent, false);
-
-        return new RehabViewHolder(v);
+        return new RehabViewHolder(view);
     }
 
     @Override
@@ -95,19 +97,14 @@ public class RehabAdapter extends RecyclerView.Adapter<RehabAdapter.RehabViewHol
 
     //Viewholder class
     class RehabViewHolder extends RecyclerView.ViewHolder{
-
-        TextView title,author;
-        ImageView image;
-        LinearLayout articleLayout;
+        @BindView(R.id.title) TextView title;
+        @BindView(R.id.author) TextView author;
+        @BindView(R.id.image) ImageView image;
+        @BindView(R.id.articleLayout) LinearLayout articleLayout;
 
         public RehabViewHolder(View itemView) {
             super(itemView);
-
-            title = (TextView) itemView.findViewById(R.id.title);
-            articleLayout = (LinearLayout) itemView.findViewById(R.id.articleLayout);
-            author = (TextView) itemView.findViewById(R.id.author);
-            image = (ImageView) itemView.findViewById(R.id.image);
-
+            ButterKnife.bind(this, itemView);
         }
 
 
