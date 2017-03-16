@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -29,6 +30,9 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static final String PREF_KEY_FIRST_START = "com.swahilipothub.arostonoma.PREF_KEY_FIRST_START";
+    public static final int REQUEST_CODE_INTRO = 1;
+
     //FragmentManager
     FragmentManager mFragmentManager;
     //fragment
@@ -43,6 +47,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -71,6 +77,7 @@ public class MainActivity extends AppCompatActivity
         if (savedInstanceState != null) {
             return;
         }
+
 
         /**
          * Force user to logout if updated
@@ -121,6 +128,7 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

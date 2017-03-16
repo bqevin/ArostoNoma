@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -25,15 +26,29 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by admin on 8/25/2016.
  */
 public class LoginActivity extends Activity {
     private static final String TAG = RegisterActivity.class.getSimpleName();
-    private Button btnLogin;
-    private Button btnLinkToRegister;
-    private EditText inputEmail;
-    private EditText inputPassword;
+
+    /**
+     * Extra pref for Material Intro
+     */
+    public static final String PREF_KEY_FIRST_START = "com.swahilipothub.arostonoma.PREF_KEY_FIRST_START";
+    public static final int REQUEST_CODE_INTRO = 1;
+
+    /**
+     * Views binding happening here
+     */
+    @BindView(R.id.btnLinkToRegisterScreen) Button btnLinkToRegister;
+    @BindView(R.id.email) EditText inputEmail;
+    @BindView(R.id.password) EditText inputPassword;
+    @BindView(R.id.btnLogin) Button btnLogin;
+
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -41,12 +56,23 @@ public class LoginActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.login_layout);
 
-        inputEmail = (EditText) findViewById(R.id.email);
-        inputPassword = (EditText) findViewById(R.id.password);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnLinkToRegister = (Button) findViewById(R.id.btnLinkToRegisterScreen);
+        ButterKnife.bind(this);
+
+        /**
+         * Check if is user first run, ensure a Material Intro run
+         */
+
+        boolean firstStart = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean(PREF_KEY_FIRST_START, true);
+
+        if (firstStart) {
+            Intent intent = new Intent(this, MainIntroActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_INTRO);
+        }
+
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -99,6 +125,32 @@ public class LoginActivity extends Activity {
         });
 
     }
+
+    /**
+     * Associated with Material Intro
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_INTRO) {
+            if (resultCode == RESULT_OK) {
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean(PREF_KEY_FIRST_START, false)
+                        .apply();
+            }
+            else {
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean(PREF_KEY_FIRST_START, true)
+                        .apply();
+                //User cancelled the intro so we'll finish this activity too.
+                finish();
+            }
+        }
+    }
+
 
     /**
      * function to verify login details in mysql db
