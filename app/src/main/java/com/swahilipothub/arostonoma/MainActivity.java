@@ -2,13 +2,11 @@ package com.swahilipothub.arostonoma;
 
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 
-import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -25,6 +23,9 @@ import com.swahilipothub.arostonoma.helper.SessionManager;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -32,16 +33,21 @@ public class MainActivity extends AppCompatActivity
     FragmentManager mFragmentManager;
     //fragment
     SectionFragment sectionFragment;
-   //Button button;
-    DrawerLayout drawer;
 
     private SQLiteHandler db;
     private SessionManager session;
+
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.drawer_layout) DrawerLayout drawer;
+    @BindView(R.id.nav_view) NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Init ButterKnife
+        ButterKnife.bind(this);
 
         /*//button =(Button)findViewById(R.id.bCancel);
 
@@ -81,7 +87,6 @@ public class MainActivity extends AppCompatActivity
 //            logoutUser();
 //        }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         sectionFragment = new SectionFragment();
@@ -100,19 +105,16 @@ public class MainActivity extends AppCompatActivity
             }
         });*/
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -174,7 +176,6 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -220,8 +221,6 @@ public class MainActivity extends AppCompatActivity
     private void showProfileActivity() {
 
         startActivity(new Intent(this,ProfileActivity.class));
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
     }
@@ -229,24 +228,18 @@ public class MainActivity extends AppCompatActivity
     private void showCHelpActivity() {
 
         startActivity(new Intent(this, CHelpActivity.class));
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 
     private void showRehabActivity() {
 
         startActivity(new Intent(this, RehabActivity.class));
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 
     private void showReportDealer() {
 
         startActivity(new Intent(this, ReportDealersActivity.class));
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 

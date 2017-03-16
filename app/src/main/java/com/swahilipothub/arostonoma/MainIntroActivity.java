@@ -46,7 +46,7 @@ public class MainIntroActivity extends IntroActivity {
         addSlide(new FragmentSlide.Builder()
                 .background(R.color.colorPrimary)
                 .backgroundDark(R.color.colorPrimaryDark)
-                .fragment(R.layout.login_layout, R.style.AppTheme)
+                .fragment(R.layout.register_layout, R.style.AppTheme)
                 .build());
 
         addSlide(new SimpleSlide.Builder()
