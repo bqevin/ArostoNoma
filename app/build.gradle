@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.swahilipothub.arostonoma"
-        minSdkVersion 8
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 8
         versionName "1.8"
@@ -29,8 +29,11 @@ dependencies {
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.android.support:support-v4:23.2.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //Butterknife for data binding
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    //for info and guides
+    compile 'com.heinrichreimersoftware:material-intro:1.6'
 
 
 }
